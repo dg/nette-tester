@@ -230,9 +230,6 @@ XX
 	/** @return string */
 	private function prepareCodeCoverage()
 	{
-		if (!$this->interpreter->hasXdebug()) {
-			throw new \Exception("Code coverage functionality requires Xdebug extension (used {$this->interpreter->getCommandLine()})");
-		}
 		file_put_contents($this->options['--coverage'], '');
 		$file = realpath($this->options['--coverage']);
 		putenv(Environment::COVERAGE . '=' . $file);
